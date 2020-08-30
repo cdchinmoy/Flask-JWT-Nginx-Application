@@ -10,7 +10,7 @@ verify_ssl = true
 flask="*"
 flask-sqlalchemy="*"
 flask-swagger-ui="*"
-jwt="*"
+pyjwt="*"
 gunicorn="*"
 
 [requires]
