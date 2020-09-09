@@ -256,6 +256,6 @@ definitions:
 
 
 # Added by API Auto Mocking Plugin
-host: flask-jwt-api.herokuapp.com
+host: ec2-3-6-38-120.ap-south-1.compute.amazonaws.com:5000
 schemes:
  - https
