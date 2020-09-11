@@ -32,6 +32,7 @@ def seller_token_required(f):
 
 @seller_bp.route('/register', methods=['POST'])
 def create_seller():
+
     data = request.get_json()
     hashed_password = generate_password_hash(data['password'], method='sha256')
     email_exist = Seller.check_email_exist(data['email'])
@@ -41,6 +42,7 @@ def create_seller():
     if username_exist:
         return jsonify({'message':'There is already an account with this username!'})
     new_seller = Seller(name=data['name'], email=data['email'], username=data['username'], password=hashed_password)
+    
     db.session.add(new_seller)
     db.session.commit()
     return jsonify({'message':'New seller created'})

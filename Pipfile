@@ -13,5 +13,6 @@ flask-swagger-ui="*"
 pyjwt="*"
 gunicorn="*"
 psycopg2="*"
+Flask-Migrate="*"
 [requires]
 python_version = "3.8"

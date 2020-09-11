@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_migrate import Migrate, MigrateCommand
 
 db = SQLAlchemy()
+migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
@@ -10,6 +12,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:12345678@database-1.ci8mswb2d1o2.ap-south-1.rds.amazonaws.com:5432/mydb"
     
     db.init_app(app)
+    migrate.init_app(app, db)
 
     from project.routes.user import user_bp
     app.register_blueprint(user_bp, url_prefix="/user")
